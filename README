@@ -6,4 +6,34 @@ The point of this configuration is to create something extremely lightweight and
 compatible which I can `git clone` from a server. No plugins allowed to satisfy
 any possible security requirements.
 
+# Keymaps
+
+Exit insert mode with `jj`, a truly amazing keymap. The only downside is when
+you have a word that ends with `j` and you want to leave insert after that, you
+have to press `Space` `jjx` instead, which is very awkward. It's also nearly
+impossible to type `jj` happily, but that combo basically never happens so its
+fine.
+
+Navigate windows and tabs with `Ctrl` and `hjkl`. Windows can be cycled thorugh
+with `jk`, and tab navigation is done with `hl`. It's pretty simple, and it
+ought to be.
+
+Redo with `U`. Why this isn't default is a mystery to me, the default `U`
+behavior is extremely confusing and hard to work with. I might be dumb, but it's
+not worth figuring it out.
+
+Open the current vim directory in netrw (which has its banner removed) with `_`.
+Explore the parent of the current file with `-`. These combined allow pretty
+much free navigation of the file system.
+
+Open a picker with `<leader>f` then a target list. The first and most useful
+target list is `f`, which will show all non-hidden files and directories like
+would appear in `tree -fi`. A slight modification of that is `a`, which includes
+hidden files and directories like `tree -fia`. The `t` target looks up and lists
+all vim help tags which can be jumped to with `:help`. The `g` tag will list all
+tracked git files.
+
+The mapping `gO` will open a table of contents for a markdown or help buffer. It
+isn't pretty, but it gets the job done well enough.
+
     vim:ft=markdown
