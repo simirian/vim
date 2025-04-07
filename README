@@ -1,0 +1,9 @@
+# Vim Configuration
+
+by simirian
+
+The point of this configuration is to create something extremely lightweight and
+compatible which I can `git clone` from a server. No plugins allowed to satisfy
+any possible security requirements.
+
+    vim:ft=markdown
