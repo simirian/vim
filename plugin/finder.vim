@@ -35,6 +35,9 @@ function! s:FindUpdate()
         job_stop(s:job)
     endif
     let cmd = g:finder_cmd .. " | grep " .. shellescape(input)
+    if (&ignorecase && &smartcase && input ==# tolower(input)) || (&ignorecase && !&smartcase)
+        let cmd = g:finder_cmd .. " | grep -i " .. shellescape(input)
+    endif
     call job_start(["sh", "-c", cmd], {"close_cb": function("s:JobDone")})
 endfunction
 
