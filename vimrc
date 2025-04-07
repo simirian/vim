@@ -54,6 +54,8 @@ set belloff=all
 set hidden
 set directory=~/.vim/.swap//
 
+au FileType text,markdown set tw=80 colorcolumn=+1
+
 " lines
 set statusline=\ %y\ %t\ %n\ %M%=%l/%L\ %v\ 
 set laststatus=2
@@ -97,4 +99,5 @@ nnoremap <leader>fh <cmd>call Find("h")<cr>
 nnoremap <leader>fg <cmd>call Find("g")<cr>
 
 " markdown TOC
-noremap gO :lvim /#\+ \w\+/ % \| cope<cr>
+au FileType markdown noremap gO <cmd>lvim /#\+ \w\+/ % \| lope<cr>
+au FileType help noremap gO <cmd>lvim /^\(=\+\n\)\@<=.*\*.*\*.*$\\|^[[:upper:]][^[:lower:]]\+\s\+\*.*\*.*$/ % \| lope<cr>
