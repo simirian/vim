@@ -75,28 +75,10 @@ nnoremap - <cmd>e %:h<cr>
 nnoremap _ <cmd>e .<cr>
 
 " finder
-function! Find(...)
-    if a:0 == 0
-    elseif a:1 == "f"
-        let g:finder_cmd = "find . | grep -v '/\\.'"
-        let g:finder_select = "edit"
-    elseif a:1 == "a"
-        let g:finder_cmd = "find ."
-        let g:finder_select = "edit"
-    elseif a:1 == "h"
-        let files = join(globpath(&runtimepath, "**/doc/tags", 1, 1), " ")
-        let g:finder_cmd = "grep -ohe '^[^[:space:]]*' " .. files
-        let g:finder_select = "help"
-    elseif a:1 == "g"
-        let g:finder_cmd = "git ls-tree -r $(git branch --show) --name-only"
-        let g:finder_select = "edit"
-    endif
-    edit finder
-endfunction
-nnoremap <leader>ff <cmd>call Find("f")<cr>
-nnoremap <leader>fa <cmd>call Find("a")<cr>
-nnoremap <leader>fh <cmd>call Find("h")<cr>
-nnoremap <leader>fg <cmd>call Find("g")<cr>
+nnoremap <leader>ff <cmd>e find://files<cr>
+nnoremap <leader>fa <cmd>e find://all<cr>
+nnoremap <leader>fh <cmd>e find://help<cr>
+nnoremap <leader>fg <cmd>e find://git<cr>
 
 " markdown TOC
 au FileType markdown noremap gO <cmd>lvim /#\+ \w\+/ % \| lope<cr>
